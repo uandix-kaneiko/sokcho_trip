@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>속초 가족 원정대 · 모바일 여행 플랜</title>
+<style>
+:root{
+  --navy:#12344d; --sea:#157f97; --mint:#dff5f2; --sand:#fff4df;
+  --cream:#fffdf8; --orange:#ff914d; --yellow:#ffd260; --pink:#ffddd6;
+  --ink:#19364c; --muted:#6b7b87; --line:#dfe9ea; --white:#fff;
+}
+*{box-sizing:border-box}
+html{background:#dff5f2}
+body{
+  margin:0;color:var(--ink);background:
+  radial-gradient(circle at 100% 0,rgba(255,210,96,.5),transparent 33rem),
+  linear-gradient(180deg,#dff5f2 0%,#fffdf8 38%,#fff4df 100%);
+  font-family:Pretendard,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.app{max-width:520px;margin:auto;padding:0 14px calc(90px + env(safe-area-inset-bottom))}
+.hero{
+  position:relative;overflow:hidden;min-height:300px;margin:0 -14px 14px;padding:28px 22px 24px;
+  color:#fff;background:linear-gradient(145deg,#0c3e5f,#168aa0 58%,#2bb2ac);
+  border-radius:0 0 28px 28px;box-shadow:0 10px 26px rgba(15,72,91,.22)
+}
+.hero:before{content:"";position:absolute;width:240px;height:240px;border:18px solid rgba(255,255,255,.12);border-radius:50%;right:-96px;top:-112px}
+.hero:after{content:"";position:absolute;inset:auto -40px -22px -40px;height:86px;background:
+  radial-gradient(ellipse at 15% 0,#fff 0 15%,transparent 16%) 0 0/85px 50px repeat-x;
+  opacity:.95}
+.logo{position:relative;z-index:1;display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border:1px solid rgba(255,255,255,.34);border-radius:99px;background:rgba(255,255,255,.13);font-weight:800;font-size:12px;letter-spacing:.08em}
+h1{position:relative;z-index:1;margin:18px 0 8px;font-size:39px;line-height:1.08;letter-spacing:-.075em}
+.hero p{position:relative;z-index:1;margin:0;max-width:320px;line-height:1.6;font-size:14px;opacity:.94}
+.date{position:relative;z-index:1;display:flex;gap:7px;flex-wrap:wrap;margin-top:19px}
+.date span{padding:8px 10px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:10px;font-size:12px;font-weight:700}
+.mascot{position:absolute;z-index:1;right:17px;bottom:38px;width:122px;height:115px;font-size:82px;filter:drop-shadow(0 8px 8px rgba(0,0,0,.12));transform:rotate(-7deg)}
+.mascot small{position:absolute;right:2px;bottom:8px;padding:6px 8px;border-radius:10px;color:#17374d;background:#fff;font-size:10px;font-weight:800;transform:rotate(7deg);white-space:nowrap}
+.funbar{
+  display:flex;gap:10px;align-items:center;padding:14px 13px;margin:14px 0 18px;
+  border-radius:18px;background:#fff7d9;border:1px solid #f7dd9b;box-shadow:0 8px 18px rgba(116,90,30,.06)
+}
+.funbar .emoji{font-size:31px}.funbar b{display:block;font-size:14px}.funbar span{display:block;margin-top:2px;font-size:12px;color:#786843;line-height:1.45}
+.sec-title{display:flex;align-items:end;justify-content:space-between;margin:25px 2px 12px}
+.sec-title h2{margin:0;font-size:20px;letter-spacing:-.06em}.sec-title span{font-size:11px;color:var(--muted);font-weight:700}
+.day{
+  position:relative;overflow:hidden;margin:12px 0;background:rgba(255,255,255,.94);
+  border:1px solid rgba(255,255,255,.85);border-radius:23px;box-shadow:0 10px 24px rgba(24,66,80,.08)
+}
+.dayhead{display:flex;align-items:center;gap:11px;padding:16px 15px;border-bottom:1px dashed var(--line)}
+.badge{display:grid;place-items:center;width:46px;height:46px;border-radius:15px;background:#e1f5f7;font-size:25px}
+.day:nth-of-type(2) .badge{background:#e9f6e8}.day:nth-of-type(3) .badge{background:#fff0ce}
+.dayhead .num{font-size:11px;font-weight:800;letter-spacing:.09em;color:var(--sea)}
+.dayhead h3{margin:2px 0 0;font-size:18px;letter-spacing:-.055em}.weather{margin-left:auto;font-size:11px;font-weight:700;padding:7px 8px;border-radius:9px;background:#f5f7f5;color:#56716d}
+.schedule{padding:6px 15px 9px}
+.spot{display:grid;grid-template-columns:77px 20px 1fr;gap:9px;padding:14px 0;border-bottom:1px solid #eff3f2}
+.spot:last-child{border-bottom:0}
+.time{font-size:11px;font-weight:800;color:#197d93;line-height:1.35;padding-top:2px}
+.dot{position:relative;display:grid;place-items:center;width:19px;height:19px;border-radius:50%;font-size:10px;background:#ffcf5b}
+.dot:after{content:"";position:absolute;width:2px;height:calc(100% + 20px);top:19px;background:#dde8e9}
+.spot:last-child .dot:after{display:none}
+.detail h4{margin:0 0 5px;font-size:15px;letter-spacing:-.04em;line-height:1.35}.detail p{margin:0;font-size:12px;color:var(--muted);line-height:1.55}
+.pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}.pill{padding:4px 7px;border-radius:99px;background:#eaf8f9;color:#26788a;font-size:10px;font-weight:800}.pill.food{background:#fff1ea;color:#a95e45}.pill.sleep{background:#fff8d8;color:#83621e}
+.mission{
+  margin-top:14px;padding:13px 14px;border-radius:16px;background:linear-gradient(135deg,#fff4df,#fffbf1);
+  border:1px solid #f3dfbc;font-size:12px;line-height:1.55;color:#776247
+}
+.mission strong{color:#9d5a25}.mission em{font-style:normal;font-size:17px;margin-right:5px}
+.details{margin:13px 0;background:#fff;border:1px solid #e7eded;border-radius:16px;overflow:hidden}
+summary{cursor:pointer;padding:13px 14px;font-size:13px;font-weight:800;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"＋";float:right;color:#18849b;font-size:17px;line-height:12px}
+details[open] summary:after{content:"－"}
+.detailbox{padding:0 14px 14px;font-size:12px;color:var(--muted);line-height:1.7}
+.packing{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}
+.pack{padding:11px;border-radius:13px;background:rgba(255,255,255,.84);box-shadow:0 6px 14px rgba(24,66,80,.05);font-size:12px;font-weight:800;color:#486673}
+.quote{margin-top:20px;padding:22px 19px;border-radius:22px;color:#fff;background:linear-gradient(135deg,#f48158,#ffad54);box-shadow:0 12px 24px rgba(214,105,64,.16)}
+.quote .big{font-size:36px;float:left;line-height:20px;margin-right:7px}.quote p{margin:0;font-size:15px;font-weight:800;letter-spacing:-.04em;line-height:1.6}.quote small{display:block;margin-top:8px;font-size:11px;opacity:.9}
+.nav{
+  position:fixed;z-index:30;bottom:0;left:50%;transform:translateX(-50%);max-width:520px;width:100%;
+  display:flex;justify-content:space-around;padding:9px 12px calc(9px + env(safe-area-inset-bottom));
+  border-top:1px solid rgba(22,85,95,.1);background:rgba(255,255,255,.91);backdrop-filter:blur(14px)
+}
+.nav a{text-decoration:none;text-align:center;color:#607985;font-size:10px;font-weight:800}.nav i{display:block;font-style:normal;font-size:20px;margin-bottom:2px}.nav a:first-child{color:#16829a}
+@media (min-width:521px){.app{padding-left:18px;padding-right:18px}.hero{margin-left:-18px;margin-right:-18px}}
+</style>
+</head>
+<body>
+<div class="app" id="top">
+  <header class="hero">
+    <div class="logo">🚙 SOKCHO FAMILY QUEST</div>
+    <h1>속초 원정대,<br>출발합니다!</h1>
+    <p>배는 든든하게, 사진은 왕창, 일정은 느긋하게.<br>바다·산·야식이 기다리는 2박 3일입니다.</p>
+    <div class="date">
+      <span>📅 2026.06.25–06.27</span>
+      <span>🏨 금호 설악 리조트</span>
+      <span>👨‍👩‍👧‍👦 가족 4인</span>
+    </div>
+    <div class="mascot">🦑<small>오징어도 놀러옴</small></div>
+  </header>
+
+  <div class="funbar">
+    <div class="emoji">🗺️</div>
+    <div><b>이번 여행의 목표: “배부르고, 웃고, 잘 쉬기”</b><span>일정은 계획일 뿐. 맛있는 곳 앞에서는 유연하게 움직입니다.</span></div>
+  </div>
+
+  <div class="sec-title" id="day1"><h2>오늘의 탐험 코스</h2><span>스크롤하며 체크!</span></div>
+
+  <article class="day">
+    <div class="dayhead"><div class="badge">🚗</div><div><div class="num">DAY 1 · THU</div><h3>속초 도착 & 시장 야식</h3></div><div class="weather">🍗 먹방 시작</div></div>
+    <div class="schedule">
+      <div class="spot"><div class="time">15:30<br>–18:00</div><div class="dot">1</div><div class="detail"><h4>하교 후 속초로 출발</h4><p>차 안에서는 간식, 음악, 그리고 “몇 분 남았어?” 질문 17회까지 허용.</p><div class="pills"><span class="pill">안전운전</span><span class="pill">휴게소 선택권</span></div></div></div>
+      <div class="spot"><div class="time">18:00<br>–19:30</div><div class="dot">2</div><div class="detail"><h4>🐟 저녁 · 88생선구이</h4><p>숯불 생선구이로 이동 피로를 정리합니다. 밥 한 공기 추가는 여행의 공식 룰.</p><div class="pills"><span class="pill food">생선구이</span><span class="pill food">든든한 첫 끼</span></div></div></div>
+      <div class="spot"><div class="time">19:30<br>–20:30</div><div class="dot">3</div><div class="detail"><h4>🛍️ 속초관광수산시장</h4><p>닭강정·오징어순대·아바이순대 포장. “이건 숙소 가서 먹자”가 지켜질지는 미지수.</p><div class="pills"><span class="pill">시장탐험</span><span class="pill food">야식포장</span></div></div></div>
+      <div class="spot"><div class="time">21:00<br>–</div><div class="dot">4</div><div class="detail"><h4>🏨 리조트 체크인 & 야식 파티</h4><p>오늘의 마지막 일정은 소파에 앉아 야식 펼치기. 단, 내일 케이블카를 위해 적당히!</p><div class="pills"><span class="pill sleep">금호 설악 리조트</span><span class="pill food">야식 타임</span></div></div></div>
+    </div>
+    <div class="mission"><em>🎯</em><strong>DAY 1 미션</strong> · 시장에서 “우리 집 최애 간식” 1위 투표하기!</div>
+  </article>
+
+  <article class="day" id="day2">
+    <div class="dayhead"><div class="badge">⛰️</div><div><div class="num">DAY 2 · FRI</div><h3>산과 바다, 그리고 갈비</h3></div><div class="weather">🌦️ 우산 준비</div></div>
+    <div class="schedule">
+      <div class="spot"><div class="time">10:00<br>–12:00</div><div class="dot">1</div><div class="detail"><h4>🚠 설악산 케이블카 & 권금성</h4><p>오전 맑은 공기를 놓치지 않는 핵심 코스. 사진은 풍경 먼저, 셀카는 그다음!</p><div class="pills"><span class="pill">케이블카</span><span class="pill">설악산</span></div></div></div>
+      <div class="spot"><div class="time">12:30<br>–13:30</div><div class="dot">2</div><div class="detail"><h4>🍲 점심 · 청초수물회</h4><p>물회·섭국·성게알비빔밥. 매운맛은 “괜찮아”라고 한 사람부터 먼저 도전.</p><div class="pills"><span class="pill food">청초호 뷰</span><span class="pill food">시원한 점심</span></div></div></div>
+      <div class="spot"><div class="time">14:00<br>–15:30</div><div class="dot">3</div><div class="detail"><h4>🎡 속초해수욕장 & 속초아이</h4><p>비가 와도 대관람차 안은 아늑합니다. 가족사진 한 장은 필수, 표정은 자유.</p><div class="pills"><span class="pill">포토존</span><span class="pill">바다산책</span></div></div></div>
+      <div class="spot"><div class="time">16:00<br>–18:00</div><div class="dot">4</div><div class="detail"><h4>☕ 바다정원</h4><p>비 오는 바다와 따뜻한 커피. 빵 고르는 시간은 일정표에 포함되지 않습니다.</p><div class="pills"><span class="pill food">베이커리</span><span class="pill">오션뷰</span></div></div></div>
+      <div class="spot"><div class="time">18:30<br>–20:00</div><div class="dot">5</div><div class="detail"><h4>🥩 저녁 · 설악본가</h4><p>오늘의 피날레는 숯불갈비. “한 점만 더”가 가장 많이 나올 예정입니다.</p><div class="pills"><span class="pill food">숯불갈비</span><span class="pill food">가족 환호 메뉴</span></div></div></div>
+    </div>
+    <div class="mission"><em>🏆</em><strong>DAY 2 미션</strong> · 속초아이에서 가장 웃긴 가족사진 1장 남기기!</div>
+  </article>
+
+  <article class="day" id="day3">
+    <div class="dayhead"><div class="badge">🚲</div><div><div class="num">DAY 3 · SAT</div><h3>호수 산책 & 힙한 마무리</h3></div><div class="weather">☀️ 느긋하게</div></div>
+    <div class="schedule">
+      <div class="spot"><div class="time">10:30</div><div class="dot">1</div><div class="detail"><h4>🏨 체크아웃</h4><p>놓고 가는 물건 없는지 마지막 점검. 충전기와 아이들 양말은 특히 주의!</p><div class="pills"><span class="pill sleep">체크아웃</span></div></div></div>
+      <div class="spot"><div class="time">11:00<br>–12:30</div><div class="dot">2</div><div class="detail"><h4>🚲 영랑호 자전거 & 범바위</h4><p>전동자전거로 호숫가를 달리고, 범바위에서 속초 전경을 눈에 담습니다.</p><div class="pills"><span class="pill">호수산책</span><span class="pill">전동자전거</span></div></div></div>
+      <div class="spot"><div class="time">13:00<br>–14:00</div><div class="dot">3</div><div class="detail"><h4>🍜 점심 · 우동당</h4><p>쫄깃한 붓가케 냉우동과 돈가스. 귀가 전 탄수화물 충전은 선택이 아닌 의무.</p><div class="pills"><span class="pill food">냉우동</span><span class="pill food">돈가스</span></div></div></div>
+      <div class="spot"><div class="time">14:30<br>–15:30</div><div class="dot">4</div><div class="detail"><h4>🍵 카페 설악산로</h4><p>소나무 정원이 있는 한옥 카페에서 여행 총평 회의. 안건: “다음엔 어디 가지?”</p><div class="pills"><span class="pill">한옥감성</span><span class="pill">마지막 휴식</span></div></div></div>
+      <div class="spot"><div class="time">15:30<br>–</div><div class="dot">5</div><div class="detail"><h4>🏠 귀가</h4><p>추억과 사진은 가득, 트렁크는 기념품으로 가득. 집까지 안전하게!</p><div class="pills"><span class="pill">안전귀가</span><span class="pill">추억 저장</span></div></div></div>
+    </div>
+    <div class="mission"><em>💬</em><strong>DAY 3 미션</strong> · 각자 “이번 여행 베스트 장면” 하나씩 발표하기!</div>
+  </article>
+
+  <details class="details" id="check">
+    <summary>🎒 출발 전 체크리스트 열기</summary>
+    <div class="detailbox">
+      <div class="packing">
+        <div class="pack">☂️ 우산·우비</div><div class="pack">🧥 얇은 겉옷</div>
+        <div class="pack">🔋 보조배터리</div><div class="pack">🩹 상비약</div>
+        <div class="pack">📸 충전기·카메라</div><div class="pack">🧃 차 안 간식</div>
+      </div>
+    </div>
+  </details>
+
+  <div class="quote"><div class="big">“</div><p>여행은 완벽한 일정이 아니라,<br>함께 웃었던 순간으로 기억됩니다.</p><small>그러니 시장에서 간식 하나 더 사도 됩니다. 아마도요.</small></div>
+</div>
+
+<nav class="nav">
+  <a href="#top"><i>🌊</i>처음</a>
+  <a href="#day1"><i>🚗</i>DAY 1</a>
+  <a href="#day2"><i>⛰️</i>DAY 2</a>
+  <a href="#day3"><i>🚲</i>DAY 3</a>
+  <a href="#check"><i>🎒</i>준비물</a>
+</nav>
+</body>
+</html>
